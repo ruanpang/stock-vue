@@ -66,11 +66,10 @@ const columns = [
   }
 ]
 const dataSource = ref([])
-
 // 为给定 ID 的 user 创建请求
 axios.get('http://r.luck101.xyz:8888/v1d0/three-day-raise')
   .then(function (response) {
-    console.log('response',response);
+    dataSource.value = response?.data || []
   })
   .catch(function (error) {
     console.log(error);
